@@ -1,0 +1,12 @@
+
+SOLID
+
+
+Single Responsability
+Open/Closed
+Liskov substitution
+Interface Segregation
+Dependency Inversion
+
+
+Design OO (low coupling and high cohesion)
