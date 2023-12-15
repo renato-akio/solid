@@ -24,10 +24,17 @@ export class SalariedCalculator extends SalaryCalculator {
     }
 }
 
+export class VolunteerCalculator extends SalaryCalculator {
+    calculateSalary(employee: any, hours: number): number {
+        throw new Error("Volunteer has no salary");
+    }
+}
+
 export class SalaryCalculatorFactory {
     static create (type:string) {
         if (type==="hourly") return new HourlyCalculator();
         if (type==="salaried") return new SalariedCalculator();
+        if (type==="volunteer") return new VolunteerCalculator();
         throw new Error();
     }
 }

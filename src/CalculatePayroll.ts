@@ -10,7 +10,12 @@ export default class CalculatePayroll {
         const employee = await this.employeeData.getEmployee(input.employeeId);
         const timeRecords = await this.employeeData.getEmployeeTimeRecordsByMonthAndYear(input.employeeId, input.month, input.year);
 
-        const salary = SalaryCalculatorFactory.create(employee.type).calculate(employee, timeRecords);
+        let salary;
+        try {
+            salary = SalaryCalculatorFactory.create(employee.type).calculate(employee, timeRecords);
+        } catch (error) {
+            salary = 0;
+        }
 
         return {
             employeeName: employee.name,
