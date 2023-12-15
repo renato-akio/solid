@@ -1,35 +1,26 @@
-export interface SalaryCalculator {
-    calculate(employee: any, timeRecords: any): number;
-}
-
-export class HourlyCalculator implements SalaryCalculator {
+export default abstract class SalaryCalculator {
     calculate(employee: any, timeRecords: any): number {
         let hours = 0;
         for (const record of timeRecords) {
             hours += (record.checkout_date.getTime() - record.checkin_date.getTime()) / (1000 * 60 * 60);
         }
-
-        let salary = 0;
-        salary = hours * parseFloat(employee.wage);
-
-        return salary;
+        return this.calculateSalary(employee, hours);
     }
 
+    abstract calculateSalary (employee: any, hours: number) : number;
 }
 
-export class SalariedCalculator implements SalaryCalculator {
-    calculate(employee: any, timeRecords: any): number {
-        let hours = 0;
-        for (const record of timeRecords) {
-            hours += (record.checkout_date.getTime() - record.checkin_date.getTime()) / (1000 * 60 * 60);
-        }
+export class HourlyCalculator extends SalaryCalculator {
+    calculateSalary(employee: any, hours: number): number {
+        return hours * parseFloat(employee.wage);
+    }
+}
 
-        let salary = 0;
+export class SalariedCalculator extends SalaryCalculator {
+    calculateSalary(employee: any, hours: number): number {
         const hourlyRate = parseFloat(employee.salary) / 160;
         const diff = (hours - 160) * hourlyRate;
-        salary = parseFloat(employee.salary) + diff;
-
-        return salary;
+        return parseFloat(employee.salary) + diff;
     }
 }
 
