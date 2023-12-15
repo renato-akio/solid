@@ -2,17 +2,17 @@
 SOLID
 
 
-Single Responsability: Devemos separar coisas que mudam por motivos diferentes.
+Single Responsability: Should separate things that change for different reasons.
 
-Open/Closed: Fechado para modificação e aberto para extensão.
+Open/Closed: Closed for modification and open for extension.
 
-Liskov substitution: Se S é subclasse de T, então objetos do tipo T, podem ser substituídos por objetos do tipo S, sem quebrar o programa.
+Liskov substitution: If S is a subclass of T, then objects of type T can be replaced by objects of type S without breaking the program.
 
-Interface Segregation: Não depender de "coisas" que não são necessárias.
+Interface Segregation: Not relying on 'things' that are not necessary.
 
 Dependency Inversion: High level modules should not depend on low level modules, both should depend on ABSTRACTIONS.
 
 - Design OO (low coupling and high cohesion)
-- Reduzir a fragilidade
-- Aumentar o reuso
-- Reduzir a rigidez
+- Reduce fragility
+- Increase reusability
+- Reduce stiffness
