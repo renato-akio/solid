@@ -1,3 +1,4 @@
+-- psql -d solid -f create.sql
 create schema code2you
 
 -- select * from code2you.employee

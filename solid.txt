@@ -2,11 +2,11 @@
 SOLID
 
 
-Single Responsability
-Open/Closed
+Single Responsability: Devemos separar coisas que mudam por motivos diferentes
+Open/Closed: Fechado para modificação e aberto para extensão
 Liskov substitution
-Interface Segregation
-Dependency Inversion
+Interface Segregation: Não depender de "coisas" que não são necessárias
+Dependency Inversion: High level modules should not depend on low level modules, both should depend on ABSTRACTIONS
 
 
 Design OO (low coupling and high cohesion)
